@@ -2,13 +2,17 @@
 
 **Node**, **Express**, **React**, **Postgres**
 
-[Technical arguments for the NERP Stack](https://blog.scottnonnenberg.com/n-for-node-js-nerp-stack-part-1/) published Feb 2016, with some comparisons to the MEAN Stack.
+[Technical arguments for the NERP Stack](https://blog.scottnonnenberg.com/n-for-node-js-nerp-stack-part-1/)
 
-Unit will be broken into three parts: **Server**, **Client**, and **More**. The "More" section will add more to the Server and Client parts and tie them together (like the rug in Big Lebowski).
+* above blog post published Feb 2016. Compares NERP to the MEAN Stack.
 
-Days / lessons and timing have not yet been assigned. This is just the top level intention.
+Unit will be broken into four parts: **Server**, **Client**, **Auth**, and **More**. The four parts are not necessarily sequential, but can be woven.
+
 
 ## Server
+
+[Full technical overview](
+
 **Goal:** Students build a RESTFul Node/Express API using Postgres as DBMS. Serves JSON. The API is standalone and excludes any opinions on clientside tech. The student can interact using any separate client -- Angular, React, React Native, Postman, cURL, etc.
 
 **Documentation of the endpoints:** and how the user can consume the API. 
