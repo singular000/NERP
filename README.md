@@ -6,35 +6,37 @@
 
 * above blog post published Feb 2016. Compares NERP to the MEAN Stack.
 
-Unit will be broken into four parts: **Server**, **Client**, **Auth**, and **More**. The four parts are not necessarily sequential, but can be woven.
+Unit will be broken into four parts: **Server**, **Client**, **Auth**, and **More**. The four parts are not necessarily sequential, and could be woven together.
 
+<br>
 
 ## Server
 
-[Full technical overview](
+[Technical details, explanations, and walkthroughs of my approach and conclusions here](https://github.com/singular000/NERP/blob/master/1-Node-Express-PGP.md)
 
-**Goal:** Students build a RESTFul Node/Express API using Postgres as DBMS. Serves JSON. The API is standalone and excludes any opinions on clientside tech. The student can interact using any separate client -- Angular, React, React Native, Postman, cURL, etc.
+My demos:
 
-**Documentation of the endpoints:** and how the user can consume the API. 
+* [Single model repo](https://github.com/singular000/node-express-pgp-single-model)
+* [One-to-many repo](https://github.com/singular000/node-express-pgp-one-to-many)
+* [Many-to-many repo](https://github.com/singular000/node-express-pgp-many-to-many)
 
-**Raw SQL:** a day of basic raw SQL and db theory, and more SQL every day, along with app integration, that introduces a new relationship. In-app, use just `pg-promise` for most of the unit to reinforce **raw SQL commands** (No ORM). Use QueryFiles for `.sql`: write clear multi-line SQL queries within `.sql` files instead of yucky string arguments.
 
-**Status codes and exceptions**: Send the proper status codes, messages, data. Handle errors and  exceptions properly in all cases so that disparate clients operate in a standard way.
 
-**CORS**: Server will accept incoming requests via CORS (The client-side app will be separate).
+**Goal:** Students build a RESTFul Express API using Postgres. Serves JSON. The API is standalone and unopinionated on clientside tech -- The student can interact from a separate domain and using any of Angular, React, React Native, Postman, cURL, etc.
 
-For simplicity, keep syntax to what is available in Node 8+ without babel config (we get async/await, but no import/export).
+**Documentation of the endpoints:** Students properly document the endpoints and how a user can consume the API. 
 
-**More section**: Stateless authentication with JSON Web Tokens ("More").
+**SQL emphasis:** Emphasis on raw SQL and db theory. Drip-feed the concepts. Teach SQL in tandem every day with app integration--introduce a new SQL relationship or concept and then integrate it into the app. In-app, use `pg-promise`'s QueryFile module to reinforce **raw SQL commands**. Write clear multi-line SQL queries within `.sql` files using the QueryFile module instead of writing yucky string arguments or using an ORM.
 
-**Maybe**: For ORM, introduce Sequelize or Bookshelf at the end of the unit as an option ("More").
+**Status codes and exceptions**: Send the proper status codes, messages, and data from the API. Handle errors and  exceptions properly in all cases so that disparate clients operate in a standard way. Along with documentation, make the API clear and easy to use.
+
+**async / await:** `pg-promise` is `pg` with Promises instead of callbacks, although the Promises themselves take callbacks! On top of a Promise we can use ES7's **async / await** syntax. With async / await we can completely get rid of callbacks. We can write sequential db calls with only one level of nesting, and assign data intuitively to variables and pass the data around like we would for regular synchronous code.
+
+(For simplicity, keep syntax to what is available in Node 8 without babel config (we get async/await, but no import/export)).
 
 Dependencies:
 
 * `pg-promise`
-* `cors`
-* `jwt`
-* `bcrypt`
 * `body-parser`
 
 Dev-dependencies:
@@ -42,40 +44,62 @@ Dev-dependencies:
 * `morgan`
 * `pretty-error`
 
-Possible
-
-* `sequelize` or `bookshelf`- ORM
-* `request` - server-side AJAX
-* `socket.io` - cross-domain sockets
-* `helmet` - security
-* `lusca` - security
-* Yeoman - scaffolding
-
+<br>
 
 ## Client
-Goal: Build a client server, separate from the Node-SQL API server. The client server will run React and interact with the API using **fetch**. 
 
-Use Facebook's `create-react-app` to learn React. 
+Technical details, explanations, and walkthroughs of my approach and conclusions are in progress
 
-Introduce Redux (not as far as thunk or react-redux)
+My demos are in progress:
 
-**More section**: Introduce build systems with webpack / babel config at the end of the unit ("More" section).
+* Single model repo
+* One-to-many repo
+* Many-to-many repo
 
-**Maybe**: Introduce modern styling methods with `styled-components` at the end of the unit ("More").
+**Goal:** Build a client server, separate from the Node-SQL API server. The client server will run **React** and interact with the API using **fetch**. 
+
+Use Facebook's `create-react-app` to teach React without worrying about the build tools up-front. 
 
 Tools:
 
 * `create-react-app`
 * fetch
-* Redux
-* `webpack` and `babel`
+
+(Note: most of the "More" section is focused on _more React_ stuff, like Redux, Webpack, and styling). 
+
+<br>
+
+## Auth
+
+**CORS**: Server will accept incoming requests via CORS (The client-side app will be separate).
+
+**JWT**: Stateless authentication with JSON Web Tokens ("More").
+
+Dependencies:
+
+* `cors`
+* `jwt`
+* local storage
+* `bcrypt`
+
+All server-side stuff can be done with just the `jwt` package for tokens, and `bcrypt` for passwords. 
+
+<br>
 
 ## More
 
-* Authentication - **json web tokens**
+Introduce Redux (not as far as thunk or react-redux).
+
+Introduce build systems with webpack / babel config.
+
+Introduce modern styling methods with `styled-components`.
+
+Use an ORM like Sequelize or Bookshelf for db queries.
+
+* Redux
 * Styling - **styled-components**
 * Build tools - **webpack and babel**
-* ORM - **sequelize**
+* ORM - **sequelize** or **bookshelf**
 
 
 
